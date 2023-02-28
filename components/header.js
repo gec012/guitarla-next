@@ -1,30 +1,50 @@
-import Image from "next/image"
-import Link from "next/link"
-import styles from '../styles/header.module.css'
+import Image from "next/image";
+import Link from "next/link";
+import { useRouter } from "next/router";
+import styles from "../styles/header.module.css";
 
-export function Header(){
-    return (
-        <header className={styles.header}>
-            <div className={`contenedor ${styles.barra}`}>
-                <Image src="/img/logo.svg" width={300} height={40} alt="imagen logotipo"/>
-            
-            <nav className={styles.navegacion}>
-                <Link href="/">
-                    Inicio
-                </Link>   
-                <Link href="/nosotros">
-                    Nosotros
-                </Link>   
-                <Link href="/blog">
-                    Blog
-                </Link>
-                <Link href="/tienda">
-                    Tienda
-                </Link>  
-            </nav>
-            
-            </div>
+export function Header() {
+  const router = useRouter();
 
-        </header>
-    )
+  return (
+    <header className={styles.header}>
+      <div className={`contenedor ${styles.barra}`}>
+        <Link legacyBehavior  href={'/'}>
+          <a>
+          <Image
+          src="/img/logo.svg"
+          width={300}
+          height={40}
+          alt="imagen logotipo"
+        />
+          </a>
+           
+        </Link>
+       
+
+        <nav className={styles.navegacion}>
+          <Link legacyBehavior href="/">
+            <a className={router.pathname === "/" ? styles.active : ""}>
+              Inicio
+            </a>
+          </Link>
+          <Link legacyBehavior href="/nosotros">
+            <a className={router.pathname === "/nosotros" ? styles.active : ""}>
+              Nosotros
+            </a>
+          </Link>
+          <Link  legacyBehavior href="/blog">
+            <a className={router.pathname === "/blog" ? styles.active : ""}>
+              Blog
+            </a>
+          </Link>
+          <Link legacyBehavior href="/tienda">
+            <a className={router.pathname === "/tienda" ? styles.active : ""}>
+              Tienda
+            </a>
+          </Link>
+        </nav>
+      </div>
+    </header>
+  );
 }
