@@ -3,16 +3,17 @@ import ListadoGuitarras from "@/components/listado-guitarras";
 
 
 
-export default function Tienda(){
+export default function Tienda({guitarras}){
+
+    console.log(guitarras);
+ 
     return(
         <Layout
            title ={'Tienda Virtual'} 
            description ={'Tienda Virtual, venta de quitarras, instrumentos, GuitarraLA'}
             >
             <main className="contenedor">
-                <h1 className="heading">
-                    Nuestra Coleccion
-                </h1>
+              <h1 className="heading">Nuestra Coleccion</h1>
                 <ListadoGuitarras
                 
                 
@@ -23,4 +24,15 @@ export default function Tienda(){
             </main>
         </Layout>
     )
+}
+
+export async function getStaticProps(){
+    const respuesta = await fetch(`${process.env.API_URL}/guitarras?populate=imagen`)
+    const {data: guitarras} = await respuesta.json()
+     
+    return {
+        props:{
+         guitarras
+        }
+    }
 }
