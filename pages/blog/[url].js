@@ -1,4 +1,4 @@
-import Image from "next/image"
+import Image from "next/Image"
 import Layout from "../../components/layout";
 import styles from "../../styles/blog.module.css"
 

@@ -1,5 +1,5 @@
 
-import Link from "next/link"
+import Link from "next/Link"
 import Layout from "@/components/layout"
 
 export default function Pagina404() {

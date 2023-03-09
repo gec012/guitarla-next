@@ -1,5 +1,5 @@
 import { Html, Head, Main, NextScript } from 'next/document'
-import Link from 'next/link'
+import Link from 'next/Link'
 
 export default function Document() {
   return (
