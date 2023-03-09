@@ -9,18 +9,16 @@ export function Header() {
   return (
     <header className={styles.header}>
       <div className={`contenedor ${styles.barra}`}>
-        <Link legacyBehavior  href={'/'}>
+        <Link legacyBehavior href={"/"}>
           <a>
-          <Image
-          src="/img/logo.svg"
-          width={300}
-          height={40}
-          alt="imagen logotipo"
-        />
+            <Image
+              src="/img/logo.svg"
+              width={300}
+              height={40}
+              alt="imagen logotipo"
+            />
           </a>
-           
         </Link>
-       
 
         <nav className={styles.navegacion}>
           <Link legacyBehavior href="/">
@@ -38,12 +36,21 @@ export function Header() {
               Tienda
             </a>
           </Link>
-          <Link  legacyBehavior href="/blog">
+          <Link legacyBehavior href="/blog">
             <a className={router.pathname === "/blog" ? styles.active : ""}>
               Blog
             </a>
           </Link>
-        
+          <Link legacyBehavior href="/carrito">
+            <a>
+              <Image
+                width={30}
+                height={25}
+                src="/img/carrito.png"
+                alt="imagen carrito"
+              />
+            </a>
+          </Link>
         </nav>
       </div>
     </header>
