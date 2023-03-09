@@ -1,6 +1,6 @@
 
 import Image from "next/Image"  
-import Link from "next/Link"    
+import Link from 'next/Link'    
 import styles from "../styles/guitarras.module.css"
 
 export default function Guitarra({guitarra}){
